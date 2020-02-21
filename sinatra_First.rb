@@ -11,6 +11,10 @@ end
 post '/' do
   @login = params[:login]
   @password = params[:password]
-  
-  erb :index
+
+  if @login == 'admin' && @password == 'secret'
+    erb :welcome
+  else
+    erb :index
+  end
 end
