@@ -12,9 +12,10 @@ post '/' do
   @login = params[:login]
   @password = params[:password]
 
-  if @login == 'admin' && @password == 'secret'
+  if @login == 'admin' || @password == 'secret'
     erb :welcome
   else
-    erb :index
+    @message = "Access denied!"
+    erb :index  
   end
 end
